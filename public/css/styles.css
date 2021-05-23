@@ -13,3 +13,7 @@ section {
     border: 2px solid black;
     text-align: center;
 }
+
+h1 {
+    text-align: center;
+}
