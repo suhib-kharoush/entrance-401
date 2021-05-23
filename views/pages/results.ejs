@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <main>
+        <%-include('../layouts/header.ejs')%>
+
+            <%info.forEach(element=>{%>
+                <section>
+                    <p>Title:
+                        <%=element.title%>
+                    </p>
+                    <p>Company:
+                        <%=element.company%>
+                    </p>
+                    <p>Location:
+                        <%=element.location%>
+                    </p>
+                    <p>Url:
+                        <%=element.url%>
+                    </p>
+                    <form action="/addToList" method="POST">
+                        <input type="hidden" name="title" value="<%=element.title%>">
+                        <input type="hidden" name="company" value="<%=element.company%>">
+                        <input type="hidden" name="location" value="<%=element.location%>">
+                        <input type="hidden" name="url" value="<%=element.url%>">
+                        <input type="hidden" name="description" value="<%=element.description%>">
+                        <button type="submit">add to my list</button>
+                    </form>
+                </section>
+                <%})%>
+    </main>
+</body>
+
+</html>

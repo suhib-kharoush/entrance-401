@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <%-include('../layouts/header.ejs')%>
+
+
+            <%info.forEach(element=>{%>
+                <section>
+                    <p>Title:
+                        <%=element.title%>
+                    </p>
+                    <p>Company:
+                        <%=element.company%>
+                    </p>
+                    <p>Location:
+                        <%=element.location%>
+                    </p>
+                    <p>Url:
+                        <%=element.url%>
+                    </p>
+                    <p>Description:
+                        <%=element.description%>
+                    </p>
+                    <form action="/updateJob/<%=element.id%>?_method=PUT" method="POST">
+                        <input type="text" name="title" value="<%=element.title%>">
+                        <input type="text" name="company" value="<%=element.company%>">
+                        <input type="text" name="location" value="<%=element.location%>">
+                        <input type="text" name="url" value="<%=element.url%>">
+                        <input type="text" name="description" value="<%=element.description%>">
+                        <button type="submit">update job</button>
+                    </form>
+                    <form action="/deleteJob/<%=element.id%>?_method=DELETE" method="POST">
+                        <button type="submit">delete job</button>
+                    </form>
+
+                </section>
+                <%})}%>
+    </main>
+</body>
+
+</html>

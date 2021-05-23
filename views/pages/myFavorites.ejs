@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <%-include('../layouts/header.ejs')%>
+
+            <%if(info.length===0){%>
+                <h1> No Jobs in Your Lis</h1>
+                <%}else{%>
+                    <%info.forEach(element=>{%>
+                        <section>
+                            <p>Title:
+                                <%=element.title%>
+                            </p>
+                            <p>Company:
+                                <%=element.company%>
+                            </p>
+                            <p>Location:
+                                <%=element.location%>
+                            </p>
+                            <p>Url:
+                                <%=element.url%>
+                            </p>
+                            <a href="/details/<%=element.id%>">view details</a>
+                        </section>
+                        <%})}%>
+    </main>
+</body>
+
+</html>
